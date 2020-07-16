@@ -1,16 +1,6 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
-.divBlack {
-    background-color:black;
-}
 
-/*ht
-    ml, body {
-   background-image: url('~/images/patrol.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}*/
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;

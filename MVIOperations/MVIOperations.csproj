@@ -11,9 +11,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.0" PrivateAssets="all" />
     <PackageReference Include="System.Net.Http.Json" Version="3.2.0" />
     <PackageReference Include="Radzen.Blazor" Version="2.10.16" />
+    <PackageReference Include="Blazored.LocalStorage" Version="2.1.6" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\Images\" />
+    <Folder Include="Components\" />
   </ItemGroup>
 </Project>
