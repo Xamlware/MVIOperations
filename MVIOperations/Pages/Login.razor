@@ -1,12 +1,52 @@
 ﻿@page "/login"
+@inject HttpClient http;
 
-    <div >
-        <h3>Simple login</h3>
-        <RadzenCard>
-            <RadzenLogin AllowRegister="false" AllowResetPassword="false"></RadzenLogin>
-        </RadzenCard>
-</div>
+<html>
+<body style="border: solid 2px green">
+    <style>
+
+        /*/div {
+            border-radius: 1em;
+            padding: 1em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%,50%)
+        }*/
+    </style>
+    <div>
+        <div>
+       
+                <RadzenLogin AllowRegister="false" AllowResetPassword="false" Login="@LogIn"></RadzenLogin>
+ 
+        </div>
+    
+    </div>
+</body>
+</html>
+
 
 @code{
-    
+    protected override async Task OnInitAsync()
+    {
+       var District = await http.GetFromJsonAsync<District>("/api/District/1");
+
+    }
+
+    void LogIn(LoginArgs args)
+    {
+
+        Console.WriteLine(args.Username);
+        //books = await Http.GetJsonAsync<Book[]>("/api/BooksFunction");
+
+    }
+
+    void Register(string name)
+    {
+    }
+
+    void ResetPassword(string value, string name)
+    {
+    }
 }

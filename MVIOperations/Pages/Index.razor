@@ -1,49 +1,64 @@
 ﻿@page "/"
 
 @inject Blazored.LocalStorage.ISyncLocalStorageService localStorage
+@inject NavigationManager nav
 
-
-<style>
-
-     .box-shadow {
-        background: #fff;
-        box-shadow: 4px 3px 8px 1px #969696;
-        -webkit-box-shadow: 4px 3px 8px 1px #969696;
-        width: 100px;
-        height: 100px;
-    }
-
-
-    .outer {
-        width: 1000px; /*for example*/
-        height: 1000px; /*for example*/
-    }
-
-    .inner {
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        width: 100px;
-        height: 100px;
-    }
-</style>
-
-<div class="outer">
-    <div class="inner box-shadow" onclick="location.href='/login';" style="cursor: pointer;">
-
-        Clock In
-
+<html>
+<body style="border: solid 2px green">
+    <style>
+       div {
+           
+            border-radius: 1em;
+            padding: 1em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%,50%)
+        }
+    </style>
+    <div>
+        @if (!@isUserAuthenticated)
+        {
+            <div id="main">
+                <RadzenButton style="height:200px; width:200px; background-image:url(images/Login.png)" Click="@LoginButtonClick"></RadzenButton>
+            </div>
+        }
+        else {
+            nav.NavigateTo("/Main");
+        } 
     </div>
-</div>
+</body>
+</html>
+
 
 @code{
+
+
     public bool isUserAuthenticated;
+    public void ButtonClick()
+    {
+        Console.WriteLine("Button Clicked");
+    }
+
+    public void LoginButtonClick()
+    {
+        Console.WriteLine("Login Button Clicked");
+        nav.NavigateTo("/loginPage");
+    }
 
     protected override void OnInitialized()
     {
+        //localStorage.SetItem("token", "John Smith");
+       localStorage.RemoveItem("token");
+
         isUserAuthenticated = (localStorage.GetItem<string>("token")) != null;
         Console.WriteLine(isUserAuthenticated);
+
+        if (isUserAuthenticated)
+        {
+            nav.NavigateTo("/main");
+        }
 
         //localStorage.SetItem("name", "John Smith");
         //var name = localStorage.GetItem<string>("name");
