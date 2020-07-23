@@ -17,12 +17,7 @@ namespace MVIOperations
 
             builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddBlazoredLocalStorage(config => config.JsonSerializerOptions.WriteIndented = true);
-            builder.Services.AddScoped(sp =>
-                new HttpClient
-                {
-                    BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
-                });
-            Console.WriteLine(builder.HostEnvironment.BaseAddress);
+              
             await builder.Build().RunAsync();
         }
     }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace MilVetIndApi.Data
+namespace MVIOperations.Models
 {
 	public class Employee
 	{

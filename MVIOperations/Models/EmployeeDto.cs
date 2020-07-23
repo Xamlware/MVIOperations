@@ -1,6 +1,6 @@
 ﻿using System;
-namespace MilVetIndApi.Data
-{
+namespace MVIOperations.Models
+{ 
 	public class EmployeeDto
 	{
 		public EmployeeDto()

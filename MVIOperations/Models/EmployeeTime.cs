@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MilVetIndApi.Data
+namespace MVIOperations.Models
 {
 	public class EmployeeTime
 	{

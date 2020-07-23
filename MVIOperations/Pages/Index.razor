@@ -1,13 +1,11 @@
 ﻿@page "/"
-
-@inject Blazored.LocalStorage.ISyncLocalStorageService localStorage
-@inject NavigationManager nav
+@inherits IndexBase
 
 <html>
 <body style="border: solid 2px green">
     <style>
-       div {
-           
+
+        div {
             border-radius: 1em;
             padding: 1em;
             position: absolute;
@@ -24,44 +22,12 @@
                 <RadzenButton style="height:200px; width:200px; background-image:url(images/Login.png)" Click="@LoginButtonClick"></RadzenButton>
             </div>
         }
-        else {
-            nav.NavigateTo("/Main");
-        } 
+        else
+        {
+            NavigateToPage("/Login");
+        }
     </div>
 </body>
 </html>
 
-
-@code{
-
-
-    public bool isUserAuthenticated;
-    public void ButtonClick()
-    {
-        Console.WriteLine("Button Clicked");
-    }
-
-    public void LoginButtonClick()
-    {
-        Console.WriteLine("Login Button Clicked");
-        nav.NavigateTo("/loginPage");
-    }
-
-    protected override void OnInitialized()
-    {
-        //localStorage.SetItem("token", "John Smith");
-       localStorage.RemoveItem("token");
-
-        isUserAuthenticated = (localStorage.GetItem<string>("token")) != null;
-        Console.WriteLine(isUserAuthenticated);
-
-        if (isUserAuthenticated)
-        {
-            nav.NavigateTo("/main");
-        }
-
-        //localStorage.SetItem("name", "John Smith");
-        //var name = localStorage.GetItem<string>("name");
-    }
-}
 
