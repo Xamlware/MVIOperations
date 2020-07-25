@@ -1,33 +1,50 @@
 ﻿@page "/"
 @inherits IndexBase
+<!--
+    /*/div {
+        border-radius: 1em;
+        padding: 1em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%,50%)
 
-<html>
-<body style="border: solid 2px green">
-    <style>
+<div>
 
-        div {
-            border-radius: 1em;
-            padding: 1em;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin-right: -50%;
-            transform: translate(-50%,50%)
-        }
-    </style>
-    <div>
-        @if (!@isUserAuthenticated)
-        {
-            <div id="main">
-                <RadzenButton style="height:200px; width:200px; background-image:url(images/Login.png)" Click="@LoginButtonClick"></RadzenButton>
+</div>   -->
+<style>
+
+
+    .middle-box {
+        margin: auto;
+        margin-top: 25%;
+        margin-left: 50%;
+        padding: 30px;
+        width: 100%;
+        height: 100%;
+        
+        border: 4px solid green;
+    }
+</style>
+
+<body>
+    @if (!@isUserAuthenticated)
+    {
+
+        <div class="middle-box">
+            <div class="row">
+                <div class="col-12">
+
+                    <RadzenButton style="border-radius:20px;height:200px; width:200px; background-image:url(images/Login.png)" Click="@LoginButtonClick"></RadzenButton>
+                </div>
             </div>
-        }
-        else
-        {
-            NavigateToPage("/Login");
-        }
-    </div>
+        </div>
+
+    }
+    else
+    {
+        NavigateToPage("/Login");
+    }
+
 </body>
-</html>
-
-

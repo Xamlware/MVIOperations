@@ -21,10 +21,9 @@
     <Folder Include="wwwroot\images\" />
     <Folder Include="Models\" />
     <Folder Include="Services\" />
+    <Folder Include="Pages\Auth\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Pages\Login.razor.cs" />
-    <Compile Remove="Pages\Index.razor.cs" />
     <Compile Remove="Services\NavigationService.cs" />
     <Compile Remove="Services\HttpService.cs" />
   </ItemGroup>
