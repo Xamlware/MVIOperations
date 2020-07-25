@@ -4,6 +4,7 @@ using MVIOperations.Models;
 using Radzen;
 using System.Net;
 using System.Net.Http;
+using MVIOperations.Services;
 
 
 
@@ -11,7 +12,7 @@ namespace MVIOperations.Pages
 {
 	public class IndexBase: ComponentBase
 	{
-        private NavigationManager nav;
+        [Inject] NavigationManager nav { get; set; }
         [Inject] HttpClient http { get; set; }
         [Inject] Blazored.LocalStorage.ISyncLocalStorageService localStorage { get; set; }
 
@@ -27,8 +28,13 @@ namespace MVIOperations.Pages
 
         public void LoginButtonClick()
         {
+            //var dist = new DataService().GetData("District", "1");
+            //Console.WriteLine(dist);
+
             Console.WriteLine("Login Button Clicked");
-            nav.NavigateTo("/login");
+            Console.WriteLine("Navigating...");
+            nav.NavigateTo("/auth/login");
+            Console.WriteLine("Navigated.");
         }
 
         protected override void OnInitialized()
